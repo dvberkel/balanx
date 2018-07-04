@@ -12,8 +12,7 @@ import java.util.stream.IntStream;
 import static nl.dvberkel.balanx.TicTacToe.Position.*;
 import static nl.dvberkel.balanx.TicTacToeBuilder.board;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.Matchers.contains;
 
 public class TicTacToeTest {
     private MoveGenerator<TicTacToe> generate;
@@ -24,7 +23,7 @@ public class TicTacToeTest {
     }
 
     @Test
-    public void emptyBoardShouldHaveAllPositionsPlayable() throws DuplicateTicTacToePositionPlacementException {
+    public void emptyBoardShouldHaveEmptyPositionsPlayable() throws DuplicateTicTacToePositionPlacementException {
         TicTacToe emptyBoard = TicTacToe.empty();
 
         List<TicTacToe> nextMoves = generate.movesFor(emptyBoard);
@@ -40,6 +39,24 @@ public class TicTacToeTest {
                 emptyBoardWith.crossAt(SW).build(),
                 emptyBoardWith.crossAt(S).build(),
                 emptyBoardWith.crossAt(SE).build()
+        ));
+    }
+
+    @Test
+    public void boardWithTwoTokensShouldHaveEmptyPositionsPlayable() throws DuplicateTicTacToePositionPlacementException {
+        TicTacToeBuilder startingBoardWith = board().crossAt(C).dotAt(NW);
+        TicTacToe startingBoard = startingBoardWith.build();
+
+        List<TicTacToe> nextMoves = generate.movesFor(startingBoard);
+
+        assertThat(nextMoves, contains(
+                startingBoardWith.crossAt(N).build(),
+                startingBoardWith.crossAt(NE).build(),
+                startingBoardWith.crossAt(W).build(),
+                startingBoardWith.crossAt(E).build(),
+                startingBoardWith.crossAt(SW).build(),
+                startingBoardWith.crossAt(S).build(),
+                startingBoardWith.crossAt(SE).build()
         ));
     }
 }
@@ -60,7 +77,15 @@ class TicTacToeBuilder {
     }
 
     public TicTacToeBuilder crossAt(TicTacToe.Position position) throws DuplicateTicTacToePositionPlacementException {
-        Optional<TicTacToe> candidate = position.place(this.board, TicTacToe.Token.Cross);
+        return place(position, TicTacToe.Token.Cross);
+    }
+
+    public TicTacToeBuilder dotAt(TicTacToe.Position position) throws DuplicateTicTacToePositionPlacementException {
+        return place(position, TicTacToe.Token.Dot);
+    }
+
+    private TicTacToeBuilder place(TicTacToe.Position position, TicTacToe.Token token) throws DuplicateTicTacToePositionPlacementException {
+        Optional<TicTacToe> candidate = position.place(this.board, token);
         if (candidate.isPresent()) {
             return new TicTacToeBuilder(candidate.get());
         } else {
