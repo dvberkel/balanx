@@ -49,7 +49,7 @@ class TicTacToeBuilder {
         return new TicTacToeBuilder();
     }
 
-    private TicTacToe board;
+    private final TicTacToe board;
 
     private TicTacToeBuilder() {
         this.board = TicTacToe.empty();
@@ -60,7 +60,7 @@ class TicTacToeBuilder {
     }
 
     public TicTacToeBuilder crossAt(TicTacToe.Position position) throws DuplicateTicTacToePositionPlacementException {
-        Optional<TicTacToe> candidate = position.place(this.board);
+        Optional<TicTacToe> candidate = position.place(this.board, TicTacToe.Token.Cross);
         if (candidate.isPresent()) {
             return new TicTacToeBuilder(candidate.get());
         } else {
@@ -97,8 +97,8 @@ class TicTacToe {
             this.index = index;
         }
 
-        public Optional<TicTacToe> place(TicTacToe board) {
-            return board.place(index);
+        public Optional<TicTacToe> place(TicTacToe board, Token token) {
+            return board.place(index, token);
         }
 
         public static Position from(int index) {
@@ -135,10 +135,10 @@ class TicTacToe {
         this.tokens = tokens;
     }
 
-    private Optional<TicTacToe> place(int index) {
+    private Optional<TicTacToe> place(int index, Token token) {
         if (tokens[index].equals(Token.Empty)) {
             Token[] placedTokens = Arrays.copyOf(tokens, tokens.length);
-            placedTokens[index] = Token.Cross;
+            placedTokens[index] = token;
             return Optional.of(new TicTacToe(placedTokens));
         } else {
             return Optional.empty();
@@ -188,7 +188,7 @@ class TicTacToeMoveGenerator implements MoveGenerator<TicTacToe> {
         List<TicTacToe.Position> playable = state.playablePositions();
         return playable
                 .stream()
-                .map(position -> position.place(state).get())
+                .map(position -> position.place(state, TicTacToe.Token.Cross).get())
                 .collect(Collectors.toList());
     }
 }
