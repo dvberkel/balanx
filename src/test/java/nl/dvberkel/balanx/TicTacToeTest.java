@@ -43,6 +43,25 @@ public class TicTacToeTest {
     }
 
     @Test
+    public void boardWithOneTokenShouldHaveEmptyPositionsPlayable() throws DuplicateTicTacToePositionPlacementException {
+        TicTacToeBuilder startingBoardWith = board().crossAt(C);
+        TicTacToe startingBoard = startingBoardWith.build();
+
+        List<TicTacToe> nextMoves = generate.movesFor(startingBoard);
+
+        assertThat(nextMoves, contains(
+                startingBoardWith.dotAt(NW).build(),
+                startingBoardWith.dotAt(N).build(),
+                startingBoardWith.dotAt(NE).build(),
+                startingBoardWith.dotAt(W).build(),
+                startingBoardWith.dotAt(E).build(),
+                startingBoardWith.dotAt(SW).build(),
+                startingBoardWith.dotAt(S).build(),
+                startingBoardWith.dotAt(SE).build()
+        ));
+    }
+
+    @Test
     public void boardWithTwoTokensShouldHaveEmptyPositionsPlayable() throws DuplicateTicTacToePositionPlacementException {
         TicTacToeBuilder startingBoardWith = board().crossAt(C).dotAt(NW);
         TicTacToe startingBoard = startingBoardWith.build();
@@ -177,6 +196,16 @@ class TicTacToe {
                 .collect(Collectors.toList());
     }
 
+    public Token tokenToPlay() {
+        int crossCount = 0; int dotCount = 0;
+        for (Token token : tokens) {
+            if (token.equals(Token.Cross)) { crossCount++; }
+            if (token.equals(Token.Dot)) {dotCount++; }
+        }
+        return dotCount >= crossCount ? Token.Cross: Token.Dot;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -211,9 +240,10 @@ class TicTacToeMoveGenerator implements MoveGenerator<TicTacToe> {
     @Override
     public List<TicTacToe> movesFor(TicTacToe state) {
         List<TicTacToe.Position> playable = state.playablePositions();
+        TicTacToe.Token tokenToPlay = state.tokenToPlay();
         return playable
                 .stream()
-                .map(position -> position.place(state, TicTacToe.Token.Cross).get())
+                .map(position -> position.place(state, tokenToPlay).get())
                 .collect(Collectors.toList());
     }
 }

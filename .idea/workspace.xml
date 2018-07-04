@@ -18,32 +18,32 @@
       <file leaf-file-name="TicTacToeTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="45" column="40" lean-forward="false" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+            <state relative-caret-position="3468">
+              <caret line="204" column="26" lean-forward="false" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#573#574#0" expanded="true" />
                 <element signature="e#633#634#0" expanded="true" />
-                <element signature="e#2302#2303#0" expanded="true" />
-                <element signature="e#2347#2348#0" expanded="true" />
-                <element signature="e#2417#2418#0" expanded="true" />
-                <element signature="e#2463#2464#0" expanded="true" />
-                <element signature="e#2512#2513#0" expanded="true" />
-                <element signature="e#2546#2547#0" expanded="true" />
-                <element signature="e#3359#3360#0" expanded="true" />
-                <element signature="e#3392#3393#0" expanded="true" />
-                <element signature="e#4043#4044#0" expanded="true" />
-                <element signature="e#4085#4086#0" expanded="true" />
-                <element signature="e#4159#4160#0" expanded="true" />
-                <element signature="e#4215#4216#0" expanded="true" />
-                <element signature="e#4630#4631#0" expanded="true" />
-                <element signature="e#4668#4669#0" expanded="true" />
-                <element signature="e#4980#4981#0" expanded="true" />
-                <element signature="e#5016#5017#0" expanded="true" />
-                <element signature="e#6064#6065#0" expanded="true" />
-                <element signature="e#6110#6111#0" expanded="true" />
-                <element signature="e#6393#6394#0" expanded="true" />
-                <element signature="e#6444#6445#0" expanded="true" />
+                <element signature="e#3110#3111#0" expanded="true" />
+                <element signature="e#3155#3156#0" expanded="true" />
+                <element signature="e#3225#3226#0" expanded="true" />
+                <element signature="e#3271#3272#0" expanded="true" />
+                <element signature="e#3320#3321#0" expanded="true" />
+                <element signature="e#3354#3355#0" expanded="true" />
+                <element signature="e#4167#4168#0" expanded="true" />
+                <element signature="e#4200#4201#0" expanded="true" />
+                <element signature="e#4851#4852#0" expanded="true" />
+                <element signature="e#4893#4894#0" expanded="true" />
+                <element signature="e#4967#4968#0" expanded="true" />
+                <element signature="e#5023#5024#0" expanded="true" />
+                <element signature="e#5438#5439#0" expanded="true" />
+                <element signature="e#5476#5477#0" expanded="true" />
+                <element signature="e#5788#5789#0" expanded="true" />
+                <element signature="e#5824#5825#0" expanded="true" />
+                <element signature="e#7187#7188#0" expanded="true" />
+                <element signature="e#7233#7234#0" expanded="true" />
+                <element signature="e#7516#7517#0" expanded="true" />
+                <element signature="e#7567#7568#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -613,23 +613,11 @@
       <option name="presentableId" value="Default" />
       <updated>1530610834804</updated>
       <workItem from="1530610838819" duration="352000" />
-      <workItem from="1530628139259" duration="6685000" />
+      <workItem from="1530628139259" duration="7208000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_balanx - 2018.07.04 at 09h 23m 20s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_balanx - 2018.07.04 at 09h 26m 16s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_balanx - 2018.07.04 at 13h 30m 32s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_balanx - 2018.07.04 at 13h 31m 26s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_balanx - 2018.07.04 at 13h 38m 59s.xml">
       <configuration name="All in balanx" configurationId="JUnit" />
     </history-entry>
@@ -648,9 +636,21 @@
     <history-entry file="All_in_balanx - 2018.07.04 at 13h 47m 42s.xml">
       <configuration name="All in balanx" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 13h 50m 00s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 13h 55m 23s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 13h 55m 45s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 13h 56m 15s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7037000" />
+    <option name="totallyTimeSpent" value="7560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1061" extended-state="0" />
@@ -734,32 +734,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="45" column="40" lean-forward="false" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        <state relative-caret-position="3468">
+          <caret line="204" column="26" lean-forward="false" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#573#574#0" expanded="true" />
             <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
-            <element signature="e#2417#2418#0" expanded="true" />
-            <element signature="e#2463#2464#0" expanded="true" />
-            <element signature="e#2512#2513#0" expanded="true" />
-            <element signature="e#2546#2547#0" expanded="true" />
-            <element signature="e#3359#3360#0" expanded="true" />
-            <element signature="e#3392#3393#0" expanded="true" />
-            <element signature="e#4043#4044#0" expanded="true" />
-            <element signature="e#4085#4086#0" expanded="true" />
-            <element signature="e#4159#4160#0" expanded="true" />
-            <element signature="e#4215#4216#0" expanded="true" />
-            <element signature="e#4630#4631#0" expanded="true" />
-            <element signature="e#4668#4669#0" expanded="true" />
-            <element signature="e#4980#4981#0" expanded="true" />
-            <element signature="e#5016#5017#0" expanded="true" />
-            <element signature="e#6064#6065#0" expanded="true" />
-            <element signature="e#6110#6111#0" expanded="true" />
-            <element signature="e#6393#6394#0" expanded="true" />
-            <element signature="e#6444#6445#0" expanded="true" />
+            <element signature="e#3110#3111#0" expanded="true" />
+            <element signature="e#3155#3156#0" expanded="true" />
+            <element signature="e#3225#3226#0" expanded="true" />
+            <element signature="e#3271#3272#0" expanded="true" />
+            <element signature="e#3320#3321#0" expanded="true" />
+            <element signature="e#3354#3355#0" expanded="true" />
+            <element signature="e#4167#4168#0" expanded="true" />
+            <element signature="e#4200#4201#0" expanded="true" />
+            <element signature="e#4851#4852#0" expanded="true" />
+            <element signature="e#4893#4894#0" expanded="true" />
+            <element signature="e#4967#4968#0" expanded="true" />
+            <element signature="e#5023#5024#0" expanded="true" />
+            <element signature="e#5438#5439#0" expanded="true" />
+            <element signature="e#5476#5477#0" expanded="true" />
+            <element signature="e#5788#5789#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+            <element signature="e#7187#7188#0" expanded="true" />
+            <element signature="e#7233#7234#0" expanded="true" />
+            <element signature="e#7516#7517#0" expanded="true" />
+            <element signature="e#7567#7568#0" expanded="true" />
           </folding>
         </state>
       </provider>
