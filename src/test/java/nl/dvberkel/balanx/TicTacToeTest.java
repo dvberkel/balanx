@@ -13,12 +13,12 @@ public class TicTacToeTest {
     @Test
     public void emptyBoardShouldHaveSomeMoves() {
         MoveGenerator<TicTacToe> generate = TicTacToeGenerator.instance();
-        TicTacToe initialBoard = TicTacToe.empty();
+        TicTacToe emptyBoard = TicTacToe.empty();
 
-        List<TicTacToe> result = generate.movesFor(initialBoard);
+        List<TicTacToe> nextMoves = generate.movesFor(emptyBoard);
 
-        assertThat(result, is(not(nullValue())));
-        assertThat(result, is(not(empty())));
+        assertThat(nextMoves, is(not(nullValue())));
+        assertThat(nextMoves, is(not(empty())));
     }
 }
 
