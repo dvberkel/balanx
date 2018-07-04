@@ -29,16 +29,17 @@ public class TicTacToeTest {
 
         List<TicTacToe> nextMoves = generate.movesFor(emptyBoard);
 
+        TicTacToeBuilder emptyBoardWith = board();
         assertThat(nextMoves, contains(
-                board().crossAt(NW).build(),
-                board().crossAt(N).build(),
-                board().crossAt(NE).build(),
-                board().crossAt(W).build(),
-                board().crossAt(C).build(),
-                board().crossAt(E).build(),
-                board().crossAt(SW).build(),
-                board().crossAt(S).build(),
-                board().crossAt(SE).build()
+                emptyBoardWith.crossAt(NW).build(),
+                emptyBoardWith.crossAt(N).build(),
+                emptyBoardWith.crossAt(NE).build(),
+                emptyBoardWith.crossAt(W).build(),
+                emptyBoardWith.crossAt(C).build(),
+                emptyBoardWith.crossAt(E).build(),
+                emptyBoardWith.crossAt(SW).build(),
+                emptyBoardWith.crossAt(S).build(),
+                emptyBoardWith.crossAt(SE).build()
         ));
     }
 }
@@ -54,11 +55,14 @@ class TicTacToeBuilder {
         this.board = TicTacToe.empty();
     }
 
+    private TicTacToeBuilder(TicTacToe board) {
+        this.board = board;
+    }
+
     public TicTacToeBuilder crossAt(TicTacToe.Position position) throws DuplicateTicTacToePositionPlacementException {
         Optional<TicTacToe> candidate = position.place(this.board);
         if (candidate.isPresent()) {
-            this.board = candidate.get();
-            return this;
+            return new TicTacToeBuilder(candidate.get());
         } else {
             throw new DuplicateTicTacToePositionPlacementException(position);
         }
