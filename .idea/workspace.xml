@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cbe0559-bc2e-49f5-a3fd-cc7c81ff587c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java" afterPath="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/MoveGenerator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToe.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeMoveGenerator.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/DuplicateTicTacToePositionPlacementException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/IllegalPositionIndexException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java" afterPath="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/TicTacToeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -15,36 +22,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TicTacToeTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java">
+      <file leaf-file-name="TicTacToeTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/TicTacToeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3468">
-              <caret line="204" column="26" lean-forward="false" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
+            <state relative-caret-position="272">
+              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="e#633#634#0" expanded="true" />
-                <element signature="e#3110#3111#0" expanded="true" />
-                <element signature="e#3155#3156#0" expanded="true" />
-                <element signature="e#3225#3226#0" expanded="true" />
-                <element signature="e#3271#3272#0" expanded="true" />
-                <element signature="e#3320#3321#0" expanded="true" />
-                <element signature="e#3354#3355#0" expanded="true" />
-                <element signature="e#4167#4168#0" expanded="true" />
-                <element signature="e#4200#4201#0" expanded="true" />
-                <element signature="e#4851#4852#0" expanded="true" />
-                <element signature="e#4893#4894#0" expanded="true" />
-                <element signature="e#4967#4968#0" expanded="true" />
-                <element signature="e#5023#5024#0" expanded="true" />
-                <element signature="e#5438#5439#0" expanded="true" />
-                <element signature="e#5476#5477#0" expanded="true" />
-                <element signature="e#5788#5789#0" expanded="true" />
-                <element signature="e#5824#5825#0" expanded="true" />
-                <element signature="e#7187#7188#0" expanded="true" />
-                <element signature="e#7233#7234#0" expanded="true" />
-                <element signature="e#7516#7517#0" expanded="true" />
-                <element signature="e#7567#7568#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
+                <element signature="e#834#835#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicTacToeBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DuplicateTicTacToePositionPlacementException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/DuplicateTicTacToePositionPlacementException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IllegalPositionIndexException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/IllegalPositionIndexException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicTacToe.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToe.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicTacToeMoveGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeMoveGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoveGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/MoveGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,7 +119,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/BalanxTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/MoveGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/DuplicateTicTacToePositionPlacementException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/IllegalPositionIndexException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeBuilder.java" />
         <option value="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/TicTacToeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToe.java" />
       </list>
     </option>
   </component>
@@ -132,6 +185,36 @@
               <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
               <item name="balanx" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="tictactoe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -140,6 +223,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tictactoe" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -153,6 +244,13 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="extract.method.default.visibility" value="private" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="nl.dvberkel.balanx.tictactoe" />
+      <recent name="nl.dvberkel.balanx.tictactoe.exception" />
+      <recent name="nl.dvberkel.balanx" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -190,15 +288,15 @@
     <configuration name="TicTacToeTest.emptyBoardShouldHaveAllPositionsPlayable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="nl.dvberkel.balanx.*" />
+          <option name="PATTERN" value="nl.dvberkel.balanx.tictactoe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="balanx" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="nl.dvberkel.balanx" />
-      <option name="MAIN_CLASS_NAME" value="nl.dvberkel.balanx.TicTacToeTest" />
+      <option name="PACKAGE_NAME" value="nl.dvberkel.balanx.tictactoe" />
+      <option name="MAIN_CLASS_NAME" value="nl.dvberkel.balanx.tictactoe.TicTacToeTest" />
       <option name="METHOD_NAME" value="emptyBoardShouldHaveAllPositionsPlayable" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -613,23 +711,11 @@
       <option name="presentableId" value="Default" />
       <updated>1530610834804</updated>
       <workItem from="1530610838819" duration="352000" />
-      <workItem from="1530628139259" duration="7208000" />
+      <workItem from="1530628139259" duration="9420000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_balanx - 2018.07.04 at 13h 38m 59s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_balanx - 2018.07.04 at 13h 39m 47s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_balanx - 2018.07.04 at 13h 41m 44s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_balanx - 2018.07.04 at 13h 43m 25s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_balanx - 2018.07.04 at 13h 46m 02s.xml">
       <configuration name="All in balanx" configurationId="JUnit" />
     </history-entry>
@@ -648,9 +734,21 @@
     <history-entry file="All_in_balanx - 2018.07.04 at 13h 56m 15s.xml">
       <configuration name="All in balanx" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 16h 47m 07s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 16h 48m 19s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 16h 52m 29s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.04 at 17h 00m 53s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7560000" />
+    <option name="totallyTimeSpent" value="9772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1061" extended-state="0" />
@@ -732,35 +830,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/TicTacToeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/MoveGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3468">
-          <caret line="204" column="26" lean-forward="false" selection-start-line="204" selection-start-column="26" selection-end-line="204" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/DuplicateTicTacToePositionPlacementException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/IllegalPositionIndexException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/TicTacToeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#3110#3111#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-            <element signature="e#3225#3226#0" expanded="true" />
-            <element signature="e#3271#3272#0" expanded="true" />
-            <element signature="e#3320#3321#0" expanded="true" />
-            <element signature="e#3354#3355#0" expanded="true" />
-            <element signature="e#4167#4168#0" expanded="true" />
-            <element signature="e#4200#4201#0" expanded="true" />
-            <element signature="e#4851#4852#0" expanded="true" />
-            <element signature="e#4893#4894#0" expanded="true" />
-            <element signature="e#4967#4968#0" expanded="true" />
-            <element signature="e#5023#5024#0" expanded="true" />
-            <element signature="e#5438#5439#0" expanded="true" />
-            <element signature="e#5476#5477#0" expanded="true" />
-            <element signature="e#5788#5789#0" expanded="true" />
-            <element signature="e#5824#5825#0" expanded="true" />
-            <element signature="e#7187#7188#0" expanded="true" />
-            <element signature="e#7233#7234#0" expanded="true" />
-            <element signature="e#7516#7517#0" expanded="true" />
-            <element signature="e#7567#7568#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeMoveGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="84" column="5" lean-forward="true" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
