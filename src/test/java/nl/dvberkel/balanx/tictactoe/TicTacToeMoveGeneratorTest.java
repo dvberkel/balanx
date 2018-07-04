@@ -1,9 +1,6 @@
 package nl.dvberkel.balanx.tictactoe;
 
 import nl.dvberkel.balanx.MoveGenerator;
-import nl.dvberkel.balanx.tictactoe.TicTacToe;
-import nl.dvberkel.balanx.tictactoe.TicTacToeBuilder;
-import nl.dvberkel.balanx.tictactoe.TicTacToeMoveGenerator;
 import nl.dvberkel.balanx.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +12,7 @@ import static nl.dvberkel.balanx.tictactoe.TicTacToeBuilder.board;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
-public class TicTacToeTest {
+public class TicTacToeMoveGeneratorTest {
     private MoveGenerator<TicTacToe> generate;
 
     @Before
