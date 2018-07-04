@@ -1,5 +1,6 @@
 package nl.dvberkel.balanx;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -15,15 +16,19 @@ import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.IsNot.not;
 
 public class TicTacToeTest {
+    private MoveGenerator<TicTacToe> generate;
+
+    @Before
+    public void createTicTacToeMoveGenerator() {
+        generate = TicTacToeMoveGenerator.instance();
+    }
+
     @Test
     public void emptyBoardShouldHaveAllPositionsPlayable() throws DuplicateTicTacToePositionPlacementException {
-        MoveGenerator<TicTacToe> generate = TicTacToeGenerator.instance();
         TicTacToe emptyBoard = TicTacToe.empty();
 
         List<TicTacToe> nextMoves = generate.movesFor(emptyBoard);
 
-        assertThat(nextMoves, is(not(nullValue())));
-        assertThat(nextMoves, is(not(empty())));
         assertThat(nextMoves, contains(
                 board().crossAt(NW).build(),
                 board().crossAt(N).build(),
@@ -168,9 +173,9 @@ class TicTacToe {
     }
 }
 
-class TicTacToeGenerator implements MoveGenerator<TicTacToe> {
+class TicTacToeMoveGenerator implements MoveGenerator<TicTacToe> {
     public static MoveGenerator<TicTacToe> instance() {
-        return new TicTacToeGenerator();
+        return new TicTacToeMoveGenerator();
     }
 
 
