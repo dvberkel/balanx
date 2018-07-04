@@ -1,13 +1,11 @@
 package nl.dvberkel.balanx.tictactoe;
 
-import nl.dvberkel.balanx.MoveGenerator;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
-class TicTacToeMoveGenerator implements MoveGenerator<TicTacToe> {
-    public static MoveGenerator<TicTacToe> instance() {
-        return new TicTacToeMoveGenerator();
+class MoveGenerator implements nl.dvberkel.balanx.MoveGenerator<TicTacToe> {
+    public static nl.dvberkel.balanx.MoveGenerator instance() {
+        return new MoveGenerator();
     }
 
 
