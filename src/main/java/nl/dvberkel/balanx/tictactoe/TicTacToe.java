@@ -2,11 +2,15 @@ package nl.dvberkel.balanx.tictactoe;
 
 import nl.dvberkel.balanx.tictactoe.exception.IllegalPositionIndexException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static nl.dvberkel.balanx.tictactoe.TicTacToe.Position.*;
+import static nl.dvberkel.balanx.tictactoe.TicTacToe.WinningRule.winWhenSameTokenAt;
 
 public class TicTacToe {
     public static enum Position {
@@ -42,6 +46,20 @@ public class TicTacToe {
 
     public static TicTacToe empty() {
         return new TicTacToe();
+    }
+    private final static List<WinningRule> winningRules = new ArrayList<>();
+    private static List<WinningRule> winningRules() {
+        if (winningRules.isEmpty()) {
+            winningRules.add(winWhenSameTokenAt(NW, N, NE));
+            winningRules.add(winWhenSameTokenAt(W, C, E));
+            winningRules.add(winWhenSameTokenAt(SW, S, SE));
+            winningRules.add(winWhenSameTokenAt(NW, W, SW));
+            winningRules.add(winWhenSameTokenAt(N, C, S));
+            winningRules.add(winWhenSameTokenAt(NE, E, SE));
+            winningRules.add(winWhenSameTokenAt(NW, C, SE));
+            winningRules.add(winWhenSameTokenAt(NE, C, SW));
+        }
+        return winningRules;
     }
 
     private final Token[] tokens;
@@ -84,6 +102,14 @@ public class TicTacToe {
         return dotCount >= crossCount ? Token.Cross: Token.Dot;
     }
 
+    public Optional<Token> won() {
+        for (WinningRule rule: TicTacToe.winningRules()) {
+            if (rule.applies(this)) {
+                return Optional.of(rule.winner(this));
+            }
+        }
+        return Optional.empty();
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -108,4 +134,25 @@ public class TicTacToe {
                 "tokens=" + Arrays.toString(tokens) +
                 '}';
     }
-}
+
+    static class WinningRule {
+        public static WinningRule winWhenSameTokenAt(Position... positions) {
+            return new WinningRule(positions);
+        }
+
+        private final Position[] positions;
+
+        private WinningRule(Position[] positions) {
+            this.positions = positions;
+        }
+
+        public boolean applies(TicTacToe state) {
+            Token target = state.tokens[positions[0].index];
+            return Arrays.stream(positions)
+                    .allMatch(position -> state.tokens[position.index].equals(target));
+        }
+
+        public Token winner(TicTacToe state) {
+            return state.tokens[positions[0].index];
+        }
+    }}
