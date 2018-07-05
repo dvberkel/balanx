@@ -148,7 +148,7 @@ public class TicTacToe {
 
         public boolean applies(TicTacToe state) {
             Token target = state.tokens[positions[0].index];
-            return Arrays.stream(positions)
+            return !target.equals(Token.Empty) && Arrays.stream(positions)
                     .allMatch(position -> state.tokens[position.index].equals(target));
         }
 

@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Optional;
 
 import static nl.dvberkel.balanx.tictactoe.Score.draw;
+import static nl.dvberkel.balanx.tictactoe.Score.indeterminate;
 import static nl.dvberkel.balanx.tictactoe.Score.winFor;
 import static nl.dvberkel.balanx.tictactoe.TicTacToe.Position.*;
 import static nl.dvberkel.balanx.tictactoe.TicTacToe.Token.Cross;
@@ -25,7 +26,7 @@ public class StateEvaluatorTest {
     }
 
     @Test
-    public void noRowIsADraw() throws DuplicateTicTacToePositionPlacementException {
+    public void noRowOnAFullBoardIsADraw() throws DuplicateTicTacToePositionPlacementException {
         Evaluator<TicTacToe, TicTacToe.Token> evaluator = new TicTacToeEvaluator();
         TicTacToe state = board()
                 .dotAt(NW).dotAt(N).crossAt(NE)
@@ -37,7 +38,16 @@ public class StateEvaluatorTest {
 
         assertThat(score, is(draw()));
     }
-}
+
+    @Test
+    public void noRowOnWithPositionsToPlayIsIndeterminate() throws DuplicateTicTacToePositionPlacementException {
+        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new TicTacToeEvaluator();
+        TicTacToe state = board().crossAt(C).build();
+
+        Score<TicTacToe.Token> score = evaluator.evaluate(state);
+
+        assertThat(score, is(indeterminate()));
+    }}
 
 interface Evaluator<S, T> {
     Score<T> evaluate(S state);
@@ -51,7 +61,11 @@ class TicTacToeEvaluator implements Evaluator<TicTacToe, TicTacToe.Token> {
         if (winner.isPresent()) {
             return winFor(winner.get());
         } else {
-            return draw();
+            if (state.playablePositions().isEmpty()) {
+                return draw();
+            } else {
+                return indeterminate();
+            }
         }
     }
 }
@@ -63,6 +77,10 @@ class Score<T> {
 
     public static <U> Score<U> draw() {
         return new Draw();
+    }
+
+    public static <U> Score<U> indeterminate() {
+        return new Indeterminate();
     }
 
     static class Win<V> extends Score<V> {
@@ -104,4 +122,20 @@ class Score<T> {
             return 31;
         }
     }
-}
+
+    static class Indeterminate<V> extends Score<V> {
+        Indeterminate() {}
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            return 7;
+        }
+    }}
