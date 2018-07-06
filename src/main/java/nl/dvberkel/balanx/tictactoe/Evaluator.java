@@ -1,15 +1,12 @@
 package nl.dvberkel.balanx.tictactoe;
 
-import nl.dvberkel.balanx.Evaluator;
 import nl.dvberkel.balanx.Score;
 
 import java.util.Optional;
 
-import static nl.dvberkel.balanx.Score.draw;
-import static nl.dvberkel.balanx.Score.indeterminate;
-import static nl.dvberkel.balanx.Score.winFor;
+import static nl.dvberkel.balanx.Score.*;
 
-public class TicTacToeEvaluator implements Evaluator<TicTacToe, TicTacToe.Token> {
+public class Evaluator implements nl.dvberkel.balanx.Evaluator<TicTacToe, TicTacToe.Token> {
 
     @Override
     public Score<TicTacToe.Token> evaluate(TicTacToe state) {

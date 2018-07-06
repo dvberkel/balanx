@@ -1,11 +1,8 @@
 package nl.dvberkel.balanx.tictactoe;
 
-import nl.dvberkel.balanx.Evaluator;
 import nl.dvberkel.balanx.Score;
 import nl.dvberkel.balanx.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
 import org.junit.Test;
-
-import java.util.Optional;
 
 import static nl.dvberkel.balanx.Score.draw;
 import static nl.dvberkel.balanx.Score.indeterminate;
@@ -19,7 +16,7 @@ import static org.hamcrest.Matchers.is;
 public class StateEvaluatorTest {
     @Test
     public void threeCarossesInARowIsAWin() throws DuplicateTicTacToePositionPlacementException {
-        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new TicTacToeEvaluator();
+        nl.dvberkel.balanx.Evaluator evaluator = new Evaluator();
         TicTacToe state = board().crossAt(C).dotAt(NE).crossAt(NW).dotAt(E).crossAt(SE).build();
 
         Score<TicTacToe.Token> score = evaluator.evaluate(state);
@@ -29,7 +26,7 @@ public class StateEvaluatorTest {
 
     @Test
     public void noRowOnAFullBoardIsADraw() throws DuplicateTicTacToePositionPlacementException {
-        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new TicTacToeEvaluator();
+        nl.dvberkel.balanx.Evaluator evaluator = new Evaluator();
         TicTacToe state = board()
                 .dotAt(NW).dotAt(N).crossAt(NE)
                 .crossAt(W).crossAt(C).dotAt(E)
@@ -43,7 +40,7 @@ public class StateEvaluatorTest {
 
     @Test
     public void noRowOnWithPositionsToPlayIsIndeterminate() throws DuplicateTicTacToePositionPlacementException {
-        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new TicTacToeEvaluator();
+        nl.dvberkel.balanx.Evaluator evaluator = new Evaluator();
         TicTacToe state = board().crossAt(C).build();
 
         Score<TicTacToe.Token> score = evaluator.evaluate(state);
