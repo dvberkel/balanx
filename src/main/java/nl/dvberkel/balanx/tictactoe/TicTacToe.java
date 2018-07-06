@@ -146,13 +146,13 @@ public class TicTacToe {
             this.positions = positions;
         }
 
-        public boolean applies(TicTacToe state) {
-            Token target = state.tokens[positions[0].index];
+        public boolean applies(TicTacToe node) {
+            Token target = node.tokens[positions[0].index];
             return !target.equals(Token.Empty) && Arrays.stream(positions)
-                    .allMatch(position -> state.tokens[position.index].equals(target));
+                    .allMatch(position -> node.tokens[position.index].equals(target));
         }
 
-        public Token winner(TicTacToe state) {
-            return state.tokens[positions[0].index];
+        public Token winner(TicTacToe node) {
+            return node.tokens[positions[0].index];
         }
     }}

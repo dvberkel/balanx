@@ -9,12 +9,12 @@ import static nl.dvberkel.balanx.Score.*;
 public class Evaluator implements nl.dvberkel.balanx.Evaluator<TicTacToe, TicTacToe.Token> {
 
     @Override
-    public Score<TicTacToe.Token> evaluate(TicTacToe state) {
-        Optional<TicTacToe.Token> winner = state.won();
+    public Score<TicTacToe.Token> evaluate(TicTacToe node) {
+        Optional<TicTacToe.Token> winner = node.won();
         if (winner.isPresent()) {
             return winFor(winner.get());
         } else {
-            if (state.playablePositions().isEmpty()) {
+            if (node.playablePositions().isEmpty()) {
                 return draw();
             } else {
                 return indeterminate();
