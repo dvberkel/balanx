@@ -1,4 +1,4 @@
-package nl.dvberkel.balanx;
+package nl.dvberkel.game;
 
 public class Score<T> {
     public static <U> Score<U> winFor(U token) {

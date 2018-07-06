@@ -1,4 +1,4 @@
-package nl.dvberkel.balanx;
+package nl.dvberkel.game;
 
 import java.util.List;
 

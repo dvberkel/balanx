@@ -1,6 +1,6 @@
-package nl.dvberkel.balanx.tictactoe.exception;
+package nl.dvberkel.game.tictactoe.exception;
 
-import nl.dvberkel.balanx.tictactoe.TicTacToe;
+import nl.dvberkel.game.tictactoe.TicTacToe;
 
 public class DuplicateTicTacToePositionPlacementException extends Exception {
     public DuplicateTicTacToePositionPlacementException(TicTacToe.Position position) {

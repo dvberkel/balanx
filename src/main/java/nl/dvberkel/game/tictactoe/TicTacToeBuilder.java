@@ -1,6 +1,6 @@
-package nl.dvberkel.balanx.tictactoe;
+package nl.dvberkel.game.tictactoe;
 
-import nl.dvberkel.balanx.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
+import nl.dvberkel.game.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
 
 import java.util.Optional;
 

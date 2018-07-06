@@ -1,11 +1,11 @@
-package nl.dvberkel.balanx.tictactoe;
+package nl.dvberkel.game.tictactoe;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-class NodeGenerator implements nl.dvberkel.balanx.NodeGenerator<TicTacToe> {
-    public static nl.dvberkel.balanx.NodeGenerator instance() {
-        return new nl.dvberkel.balanx.tictactoe.NodeGenerator();
+class NodeGenerator implements nl.dvberkel.game.NodeGenerator<TicTacToe> {
+    public static nl.dvberkel.game.NodeGenerator instance() {
+        return new nl.dvberkel.game.tictactoe.NodeGenerator();
     }
 
 

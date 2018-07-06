@@ -1,14 +1,14 @@
-package nl.dvberkel.balanx.tictactoe;
+package nl.dvberkel.game.tictactoe;
 
-import nl.dvberkel.balanx.NodeGenerator;
-import nl.dvberkel.balanx.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
+import nl.dvberkel.game.NodeGenerator;
+import nl.dvberkel.game.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-import static nl.dvberkel.balanx.tictactoe.TicTacToe.Position.*;
-import static nl.dvberkel.balanx.tictactoe.TicTacToeBuilder.board;
+import static nl.dvberkel.game.tictactoe.TicTacToe.Position.*;
+import static nl.dvberkel.game.tictactoe.TicTacToeBuilder.board;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 
@@ -17,7 +17,7 @@ public class NodeGeneratorTest {
 
     @Before
     public void createTicTacToeMoveGenerator() {
-        generate = nl.dvberkel.balanx.tictactoe.NodeGenerator.instance();
+        generate = nl.dvberkel.game.tictactoe.NodeGenerator.instance();
     }
 
     @Test

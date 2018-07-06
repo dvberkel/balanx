@@ -1,6 +1,6 @@
-package nl.dvberkel.balanx.tictactoe;
+package nl.dvberkel.game.tictactoe;
 
-import nl.dvberkel.balanx.tictactoe.exception.IllegalPositionIndexException;
+import nl.dvberkel.game.tictactoe.exception.IllegalPositionIndexException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static nl.dvberkel.balanx.tictactoe.TicTacToe.Position.*;
-import static nl.dvberkel.balanx.tictactoe.TicTacToe.WinningRule.winWhenSameTokenAt;
+import static nl.dvberkel.game.tictactoe.TicTacToe.Position.*;
+import static nl.dvberkel.game.tictactoe.TicTacToe.WinningRule.winWhenSameTokenAt;
 
 public class TicTacToe {
     public static enum Position {

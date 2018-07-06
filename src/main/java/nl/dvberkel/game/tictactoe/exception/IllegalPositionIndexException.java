@@ -1,4 +1,4 @@
-package nl.dvberkel.balanx.tictactoe.exception;
+package nl.dvberkel.game.tictactoe.exception;
 
 public class IllegalPositionIndexException extends RuntimeException {
     public IllegalPositionIndexException(int index) {
