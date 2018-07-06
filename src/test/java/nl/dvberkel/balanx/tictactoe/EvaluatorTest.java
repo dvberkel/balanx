@@ -13,7 +13,7 @@ import static nl.dvberkel.balanx.tictactoe.TicTacToeBuilder.board;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class StateEvaluatorTest {
+public class EvaluatorTest {
     @Test
     public void threeCarossesInARowIsAWin() throws DuplicateTicTacToePositionPlacementException {
         nl.dvberkel.balanx.Evaluator evaluator = new Evaluator();
