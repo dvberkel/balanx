@@ -1,13 +1,15 @@
 package nl.dvberkel.balanx.tictactoe;
 
+import nl.dvberkel.balanx.Evaluator;
+import nl.dvberkel.balanx.Score;
 import nl.dvberkel.balanx.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
 import org.junit.Test;
 
 import java.util.Optional;
 
-import static nl.dvberkel.balanx.tictactoe.Score.draw;
-import static nl.dvberkel.balanx.tictactoe.Score.indeterminate;
-import static nl.dvberkel.balanx.tictactoe.Score.winFor;
+import static nl.dvberkel.balanx.Score.draw;
+import static nl.dvberkel.balanx.Score.indeterminate;
+import static nl.dvberkel.balanx.Score.winFor;
 import static nl.dvberkel.balanx.tictactoe.TicTacToe.Position.*;
 import static nl.dvberkel.balanx.tictactoe.TicTacToe.Token.Cross;
 import static nl.dvberkel.balanx.tictactoe.TicTacToeBuilder.board;
@@ -49,93 +51,3 @@ public class StateEvaluatorTest {
         assertThat(score, is(indeterminate()));
     }}
 
-interface Evaluator<S, T> {
-    Score<T> evaluate(S state);
-}
-
-class TicTacToeEvaluator implements Evaluator<TicTacToe, TicTacToe.Token> {
-
-    @Override
-    public Score<TicTacToe.Token> evaluate(TicTacToe state) {
-        Optional<TicTacToe.Token> winner = state.won();
-        if (winner.isPresent()) {
-            return winFor(winner.get());
-        } else {
-            if (state.playablePositions().isEmpty()) {
-                return draw();
-            } else {
-                return indeterminate();
-            }
-        }
-    }
-}
-
-class Score<T> {
-    public static <U> Score<U> winFor(U token) {
-        return new Win(token);
-    }
-
-    public static <U> Score<U> draw() {
-        return new Draw();
-    }
-
-    public static <U> Score<U> indeterminate() {
-        return new Indeterminate();
-    }
-
-    static class Win<V> extends Score<V> {
-        private final V token;
-
-        Win(V token) {
-            this.token = token;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Win<?> win = (Win<?>) o;
-
-            return token.equals(win.token);
-        }
-
-        @Override
-        public int hashCode() {
-            return token.hashCode();
-        }
-    }
-
-    static class Draw<V> extends Score<V> {
-        Draw() {}
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            return true;
-        }
-
-        @Override
-        public int hashCode() {
-            return 31;
-        }
-    }
-
-    static class Indeterminate<V> extends Score<V> {
-        Indeterminate() {}
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            return true;
-        }
-
-        @Override
-        public int hashCode() {
-            return 7;
-        }
-    }}
