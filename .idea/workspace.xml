@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cbe0559-bc2e-49f5-a3fd-cc7c81ff587c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/Evaluator.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/Evaluator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/NodeGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/NodeGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/Score.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/Score.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/Evaluator.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/tictactoe/Evaluator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/NodeGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/tictactoe/NodeGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToe.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/tictactoe/TicTacToe.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/TicTacToeBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/tictactoe/TicTacToeBuilder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/DuplicateTicTacToePositionPlacementException.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/tictactoe/exception/DuplicateTicTacToePositionPlacementException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/tictactoe/exception/IllegalPositionIndexException.java" afterPath="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/tictactoe/exception/IllegalPositionIndexException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/EvaluatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/nl/dvberkel/game/tictactoe/EvaluatorTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/NodeGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/nl/dvberkel/game/tictactoe/NodeGeneratorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6cbe0559-bc2e-49f5-a3fd-cc7c81ff587c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Strategy.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Strategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/game/Strategy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -36,13 +23,29 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Random.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/game/strategies/Random.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#332#333#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,6 +88,7 @@
         <option value="$PROJECT_DIR$/src/test/java/nl/dvberkel/balanx/tictactoe/EvaluatorTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/balanx/Strategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/Strategy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nl/dvberkel/game/strategies/Random.java" />
       </list>
     </option>
   </component>
@@ -160,6 +164,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="balanx" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="strategies" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="balanx" type="b2602c69:ProjectViewProjectNode" />
@@ -653,14 +666,11 @@
       <option name="presentableId" value="Default" />
       <updated>1530610834804</updated>
       <workItem from="1530610838819" duration="352000" />
-      <workItem from="1530628139259" duration="17501000" />
+      <workItem from="1530628139259" duration="18610000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_balanx - 2018.07.05 at 08h 06m 50s.xml">
-      <configuration name="All in balanx" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_balanx - 2018.07.05 at 15h 44m 45s.xml">
       <configuration name="All in balanx" configurationId="JUnit" />
     </history-entry>
@@ -688,9 +698,12 @@
     <history-entry file="All_in_balanx - 2018.07.06 at 15h 02m 03s.xml">
       <configuration name="All in balanx" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_balanx - 2018.07.06 at 15h 20m 17s.xml">
+      <configuration name="All in balanx" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17853000" />
+    <option name="totallyTimeSpent" value="18962000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="960" height="1061" extended-state="0" />
@@ -871,6 +884,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/game/strategies/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nl/dvberkel/game/AutoPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
           <folding />
         </state>
       </provider>
