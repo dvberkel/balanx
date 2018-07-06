@@ -39,9 +39,24 @@ public class TicTacToe {
     }
 
     static enum Token {
-        Cross,
-        Dot,
-        Empty
+        Cross {
+            @Override
+            public String toString() {
+                return "x";
+            }
+        },
+        Dot {
+            @Override
+            public String toString() {
+                return "o";
+            }
+        },
+        Empty {
+            @Override
+            public String toString() {
+                return " ";
+            }
+        }
     }
 
     public static TicTacToe empty() {
@@ -133,6 +148,15 @@ public class TicTacToe {
         return "TicTacToe{" +
                 "tokens=" + Arrays.toString(tokens) +
                 '}';
+    }
+
+    public String format() {
+        return String.format("%s|%s|%s\n" +
+                "-+-+-\n" +
+                "%s|%s|%s\n" +
+                "-+-+-\n" +
+                "%s|%s|%s\n", tokens
+        );
     }
 
     static class WinningRule {
