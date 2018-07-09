@@ -3,19 +3,37 @@ package nl.dvberkel.game;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import static nl.dvberkel.game.Sorted.sorted;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;;
-;
+import static org.hamcrest.Matchers.is;
+
+@RunWith(Parameterized.class)
 public class ValueComparisonTest {
+    @Parameterized.Parameters(name = "{index}: {0} is less than {1}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(
+                new Object[]{Heuristic.Value.of(1), Heuristic.Value.of(2)},
+                new Object[]{Heuristic.Value.of(2), Heuristic.Value.of(3)},
+                new Object[]{Heuristic.Value.of(-1), Heuristic.Value.of(1)},
+                new Object[]{Heuristic.Value.of(-3), Heuristic.Value.of(-2)}
+        );
+    }
+
+    private final List<Heuristic.Value> values;
+    public ValueComparisonTest(Heuristic.Value left, Heuristic.Value right) {
+        this.values = Arrays.asList(left, right);
+    }
+
     @Test
     public void compareValues() {
-        List<Heuristic.Value> list = Arrays.asList(Heuristic.Value.of(1), Heuristic.Value.of(2));
-        assertThat(list, is(sorted()));
+        assertThat(values, is(sorted()));
     }
 }
 
