@@ -11,14 +11,11 @@ import static nl.dvberkel.game.strategies.Random.randomStrategy;
 public class AutoPlay {
     public static void main(String[] args) {
         AutoPlay game = new AutoPlay();
-        game.run();
+        game.run(randomStrategy(NodeGenerator.instance()));
     }
 
-    private void run() {
-        TicTacToe start = TicTacToe.empty();
-        Strategy<TicTacToe> strategy = randomStrategy(NodeGenerator.instance());
-
-        TicTacToe current = start;
+    private void run(Strategy<TicTacToe> strategy) {
+        TicTacToe current = TicTacToe.empty();
         System.out.println(String.format("%s", current.format()));
         Optional<TicTacToe> play = strategy.best(current);
         while (!current.won().isPresent() && play.isPresent()) {
