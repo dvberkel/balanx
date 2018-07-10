@@ -1,5 +1,7 @@
 package nl.dvberkel.game.tictactoe;
 
+import javafx.geometry.Pos;
+import nl.dvberkel.game.Heuristic;
 import nl.dvberkel.game.tictactoe.exception.IllegalPositionIndexException;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static nl.dvberkel.game.tictactoe.TicTacToe.Position.*;
+import static nl.dvberkel.game.tictactoe.TicTacToe.Token.Empty;
 import static nl.dvberkel.game.tictactoe.TicTacToe.WinningRule.winWhenSameTokenAt;
 
 public class TicTacToe {
@@ -81,9 +84,9 @@ public class TicTacToe {
 
     private TicTacToe() {
         this(new Token[]{
-                Token.Empty, Token.Empty, Token.Empty,
-                Token.Empty, Token.Empty, Token.Empty,
-                Token.Empty, Token.Empty, Token.Empty,
+                Empty, Empty, Empty,
+                Empty, Empty, Empty,
+                Empty, Empty, Empty,
         });
     }
 
@@ -92,7 +95,7 @@ public class TicTacToe {
     }
 
     private Optional<TicTacToe> place(int index, Token token) {
-        if (tokens[index].equals(Token.Empty)) {
+        if (tokens[index].equals(Empty)) {
             Token[] placedTokens = Arrays.copyOf(tokens, tokens.length);
             placedTokens[index] = token;
             return Optional.of(new TicTacToe(placedTokens));
@@ -103,7 +106,7 @@ public class TicTacToe {
 
     public List<Position> playablePositions() {
         return IntStream.range(0, tokens.length)
-                .filter(index -> tokens[index].equals(Token.Empty))
+                .filter(index -> tokens[index].equals(Empty))
                 .mapToObj(index -> Position.from(index))
                 .collect(Collectors.toList());
     }
@@ -172,11 +175,38 @@ public class TicTacToe {
 
         public boolean applies(TicTacToe node) {
             Token target = node.tokens[positions[0].index];
-            return !target.equals(Token.Empty) && Arrays.stream(positions)
+            return !target.equals(Empty) && Arrays.stream(positions)
                     .allMatch(position -> node.tokens[position.index].equals(target));
         }
 
         public Token winner(TicTacToe node) {
             return node.tokens[positions[0].index];
         }
-    }}
+    }
+short
+    public class PositionHeuristic implements Heuristic<TicTacToe> {
+        @Override
+        public Value evaluate(TicTacToe node) {
+            Token tokenToPlay = tokenToPlay();
+
+            int score = 0;
+            score += 1000 * contributionFor(tokenToPlay, C);
+            score += 500 * contributionFor(tokenToPlay, NW, NE, SE, SW);
+            score += 300 * contributionFor(tokenToPlay, N, E, S, W);
+
+            return Value.of(score);
+        }
+
+        private int contributionFor(Token tokenToPlay, Position... positions) {
+            int contribution = 0;
+            for (Position position: positions) {
+                Token token = tokens[position.index];
+                if (!token.equals(Empty)) {
+                    contribution += token.equals(tokenToPlay) ? 1 : -1;
+                }
+            }
+            return contribution;
+        }
+    }
+
+}
