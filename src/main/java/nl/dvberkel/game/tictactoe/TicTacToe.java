@@ -41,7 +41,7 @@ public class TicTacToe {
         }
     }
 
-    static enum Token {
+    public static enum Token {
         Cross {
             @Override
             public String toString() {
@@ -183,7 +183,7 @@ public class TicTacToe {
             return node.tokens[positions[0].index];
         }
     }
-short
+
     public class PositionHeuristic implements Heuristic<TicTacToe> {
         @Override
         public Value evaluate(TicTacToe node) {
