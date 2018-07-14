@@ -24,8 +24,23 @@ public class MinMaxTest {
         TicTacToe initial = board().crossAt(C).dotAt(N).crossAt(NW).dotAt(NE).build();
 
         TicTacToe node = strategy.best(initial).get();
-        Score<TicTacToe.Token> score = evaluator.evaluate(node);
 
+        Score<TicTacToe.Token> score = evaluator.evaluate(node);
+        assertThat(score, is(winFor(Cross)));
+    }
+
+    @Test
+    public void winInTwoShouldBeDetected() throws DuplicateTicTacToePositionPlacementException {
+        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new nl.dvberkel.game.tictactoe.Evaluator();
+        Strategy<TicTacToe> alternateStrategy = randomStrategy(NodeGenerator.instance());
+        Strategy<TicTacToe> strategy = new MinMax(evaluator, alternateStrategy);
+        TicTacToe initial = board().crossAt(C).dotAt(N).crossAt(NW).dotAt(SE).build();
+
+        TicTacToe node = strategy.best(initial).get();
+        node = alternateStrategy.best(node).get();
+        node = strategy.best(node).get();
+
+        Score<TicTacToe.Token> score = evaluator.evaluate(node);
         assertThat(score, is(winFor(Cross)));
     }
 }
