@@ -21,6 +21,15 @@ public class MinMax implements Strategy<TicTacToe> {
     public Optional<TicTacToe> best(TicTacToe node) {
         TicTacToe.Token tokenToPlay = node.tokenToPlay();
         List<TicTacToe.Position> positions = node.playablePositions();
+
+        for (TicTacToe.Position position : positions) {
+            TicTacToe play = position.place(node, tokenToPlay).get();
+            Score<TicTacToe.Token> score = evaluator.evaluate(play);
+            if (score.equals(Score.winFor(tokenToPlay))) {
+                return Optional.of(play);
+            }
+        }
+
         for (TicTacToe.Position position : positions) {
             TicTacToe play = position.place(node, tokenToPlay).get();
             Score<TicTacToe.Token> score = evaluate(play, tokenToPlay);
@@ -40,9 +49,9 @@ public class MinMax implements Strategy<TicTacToe> {
             for (TicTacToe.Position position: positions) {
                 TicTacToe aNode = position.place(node, tokenToPlay).get();
                 Score<TicTacToe.Token> aScore = evaluate(aNode, tokenToPlay);
-                if (score.equals(Score.winFor(tokenToPlay))) {
-                    return score;
-                } else if (!score.equals(Score.winFor(tokenThatPlayed))) {
+                if (aScore.equals(Score.winFor(tokenToPlay))) {
+                    return aScore;
+                } else if (!aScore.equals(Score.winFor(tokenThatPlayed))) {
                     allWinsForTokenThatPlayed = false;
                 }
             }

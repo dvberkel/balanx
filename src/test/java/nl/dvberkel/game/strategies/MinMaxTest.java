@@ -5,6 +5,7 @@ import nl.dvberkel.game.Score;
 import nl.dvberkel.game.Strategy;
 import nl.dvberkel.game.tictactoe.NodeGenerator;
 import nl.dvberkel.game.tictactoe.TicTacToe;
+import nl.dvberkel.game.tictactoe.TicTacToeBuilder;
 import nl.dvberkel.game.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
 import org.junit.Before;
 import org.junit.Test;
