@@ -6,6 +6,7 @@ import nl.dvberkel.game.Strategy;
 import nl.dvberkel.game.tictactoe.NodeGenerator;
 import nl.dvberkel.game.tictactoe.TicTacToe;
 import nl.dvberkel.game.tictactoe.exception.DuplicateTicTacToePositionPlacementException;
+import org.junit.Before;
 import org.junit.Test;
 
 import static nl.dvberkel.game.Score.winFor;
@@ -17,10 +18,19 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class MinMaxTest {
+    private Evaluator<TicTacToe, TicTacToe.Token> evaluator;
+    private Strategy<TicTacToe> alternateStrategy;
+    private Strategy<TicTacToe> strategy;
+
+    @Before
+    public void createStrategies() {
+        evaluator = new nl.dvberkel.game.tictactoe.Evaluator();
+        alternateStrategy = randomStrategy(NodeGenerator.instance());
+        strategy = new MinMax(evaluator, alternateStrategy);
+    }
+
     @Test
     public void winInOneShouldBeDetected() throws DuplicateTicTacToePositionPlacementException {
-        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new nl.dvberkel.game.tictactoe.Evaluator();
-        Strategy<TicTacToe> strategy = new MinMax(evaluator, randomStrategy(NodeGenerator.instance()));
         TicTacToe initial = board().crossAt(C).dotAt(N).crossAt(NW).dotAt(NE).build();
 
         TicTacToe node = strategy.best(initial).get();
@@ -31,9 +41,6 @@ public class MinMaxTest {
 
     @Test
     public void winInTwoShouldBeDetected() throws DuplicateTicTacToePositionPlacementException {
-        Evaluator<TicTacToe, TicTacToe.Token> evaluator = new nl.dvberkel.game.tictactoe.Evaluator();
-        Strategy<TicTacToe> alternateStrategy = randomStrategy(NodeGenerator.instance());
-        Strategy<TicTacToe> strategy = new MinMax(evaluator, alternateStrategy);
         TicTacToe initial = board().crossAt(C).dotAt(N).crossAt(NW).dotAt(SE).build();
 
         TicTacToe node = strategy.best(initial).get();
