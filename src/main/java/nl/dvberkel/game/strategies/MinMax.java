@@ -5,6 +5,7 @@ import nl.dvberkel.game.Strategy;
 import nl.dvberkel.game.Evaluator;
 import nl.dvberkel.game.tictactoe.TicTacToe;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -65,17 +66,17 @@ class MinMaxEvaluator implements Evaluator<TicTacToe, TicTacToe.Token> {
         if (score.equals(Score.indeterminate())) {
             TicTacToe.Token tokenToPlay = node.tokenToPlay();
             List<TicTacToe.Position> positions = node.playablePositions();
-            boolean allWinsForTokenThatPlayed = true;
+            List<Score<TicTacToe.Token>> allNonLooseOutcomes = new ArrayList<>();
             for (TicTacToe.Position position: positions) {
                 TicTacToe aNode = position.place(node, tokenToPlay).get();
                 Score<TicTacToe.Token> aScore = evaluate(aNode, tokenToPlay);
                 if (aScore.equals(Score.winFor(tokenToPlay))) {
                     return aScore;
                 } else if (!aScore.equals(Score.winFor(tokenThatPlayed))) {
-                    allWinsForTokenThatPlayed = false;
+                    allNonLooseOutcomes.add(aScore);
                 }
             }
-            if (allWinsForTokenThatPlayed) {
+            if (!allNonLooseOutcomes.contains(Score.draw())) {
                 return Score.winFor(tokenThatPlayed);
             } else {
                 return Score.draw();
