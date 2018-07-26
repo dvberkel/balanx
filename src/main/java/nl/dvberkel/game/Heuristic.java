@@ -1,6 +1,6 @@
 package nl.dvberkel.game;
 
-public interface Heuristic<S> {
+public interface Heuristic<N> {
     class Value implements Comparable<Value> {
         public static Value of(int intrinsicValue) {
             return new Value(intrinsicValue);
@@ -22,5 +22,5 @@ public interface Heuristic<S> {
             return String.format("<%d>", intrinsicValue);
         }
     }
-    Value evaluate(S node);
+    Value evaluate(N node);
 }

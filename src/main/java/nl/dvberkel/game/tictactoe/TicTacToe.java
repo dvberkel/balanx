@@ -1,8 +1,8 @@
 package nl.dvberkel.game.tictactoe;
 
-import javafx.geometry.Pos;
 import nl.dvberkel.game.Heuristic;
 import nl.dvberkel.game.Node;
+import nl.dvberkel.game.Playable;
 import nl.dvberkel.game.tictactoe.exception.IllegalPositionIndexException;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import static nl.dvberkel.game.tictactoe.TicTacToe.Token.Empty;
 import static nl.dvberkel.game.tictactoe.TicTacToe.WinningRule.winWhenSameTokenAt;
 
 public class TicTacToe implements Node<TicTacToe.Token, TicTacToe.Position> {
-    public static enum Position {
+    public static enum Position implements Playable<TicTacToe, Token> {
         NW(0), N(1), NE(2),
         W(3),  C(4), E(5),
         SW(6), S(7), SE(8);
@@ -28,6 +28,7 @@ public class TicTacToe implements Node<TicTacToe.Token, TicTacToe.Position> {
             this.index = index;
         }
 
+        @Override
         public Optional<TicTacToe> place(TicTacToe board, Token token) {
             return board.place(index, token);
         }

@@ -1,46 +1,42 @@
 package nl.dvberkel.game.strategies;
 
-import nl.dvberkel.game.Node;
-import nl.dvberkel.game.Score;
-import nl.dvberkel.game.Strategy;
-import nl.dvberkel.game.Evaluator;
-import nl.dvberkel.game.tictactoe.TicTacToe;
+import nl.dvberkel.game.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class MinMax implements Strategy<TicTacToe> {
-    private final Evaluator<TicTacToe, TicTacToe.Token> evaluator;
-    private final Strategy<TicTacToe> alternateStrategy;
+public class MinMax<T, P extends Playable<N, T>, N extends Node<T, P>> implements Strategy<N> {
+    private final Evaluator<N, T> evaluator;
+    private final Strategy<N> alternateStrategy;
 
-    public MinMax(Evaluator<TicTacToe, TicTacToe.Token> evaluator, Strategy<TicTacToe> alternateStrategy) {
+    public MinMax(Evaluator<N, T> evaluator, Strategy<N> alternateStrategy) {
         this.evaluator = evaluator;
         this.alternateStrategy = alternateStrategy;
     }
 
     @Override
-    public Optional<TicTacToe> best(TicTacToe node) {
-        TicTacToe.Token tokenToPlay = node.tokenToPlay();
-        List<TicTacToe.Position> positions = node.playablePositions();
+    public Optional<N> best(N node) {
+        T tokenToPlay = node.tokenToPlay();
+        List<P> positions = node.playablePositions();
 
-        List<Evaluator<TicTacToe, TicTacToe.Token>> evaluators = Arrays.asList(
+        List<Evaluator<N, T>> evaluators = Arrays.asList(
                 evaluator,
                 new MinMaxEvaluator(evaluator, tokenToPlay)
         );
-        for (Evaluator<TicTacToe, TicTacToe.Token> currentEvaluator: evaluators) {
-            Optional<TicTacToe> candidate = findAWin(currentEvaluator, node, tokenToPlay, positions);
+        for (Evaluator<N, T> currentEvaluator: evaluators) {
+            Optional<N> candidate = findAWin(currentEvaluator, node, tokenToPlay, positions);
             if (candidate.isPresent()) { return candidate; }
         }
 
         return alternateStrategy.best(node);
     }
 
-    private Optional<TicTacToe> findAWin(Evaluator<TicTacToe, TicTacToe.Token> currentEvaluator, TicTacToe node, TicTacToe.Token tokenToPlay, List<TicTacToe.Position> positions) {
-        for (TicTacToe.Position position : positions) {
-            TicTacToe play = position.place(node, tokenToPlay).get();
-            Score<TicTacToe.Token> score = currentEvaluator.evaluate(play);
+    private Optional<N> findAWin(Evaluator<N, T> currentEvaluator, N node, T tokenToPlay, List<P> positions) {
+        for (P position : positions) {
+            N play = position.place(node, tokenToPlay).get();
+            Score<T> score = currentEvaluator.evaluate(play);
             if (score.equals(Score.winFor(tokenToPlay))) {
                 return Optional.of(play);
             }
@@ -49,28 +45,28 @@ public class MinMax implements Strategy<TicTacToe> {
     }
 }
 
-class MinMaxEvaluator implements Evaluator<TicTacToe, TicTacToe.Token> {
-    private final Evaluator<TicTacToe, TicTacToe.Token> evaluator;
-    private final TicTacToe.Token tokenToPlay;
+class MinMaxEvaluator<T, P extends Playable<N, T>, N extends Node<T, P>> implements Evaluator<N, T> {
+    private final Evaluator<N, T> evaluator;
+    private final T tokenToPlay;
 
-    MinMaxEvaluator(Evaluator<TicTacToe, TicTacToe.Token> evaluator, TicTacToe.Token tokenToPlay) {
+    MinMaxEvaluator(Evaluator<N, T> evaluator, T tokenToPlay) {
         this.evaluator = evaluator;
         this.tokenToPlay = tokenToPlay;
     }
 
     @Override
-    public Score<TicTacToe.Token> evaluate(TicTacToe node) {
+    public Score<T> evaluate(N node) {
         return evaluate(node, tokenToPlay);
     }
-    private Score<TicTacToe.Token> evaluate(TicTacToe node, TicTacToe.Token tokenThatPlayed) {
-        Score<TicTacToe.Token> score = evaluator.evaluate(node);
+    private Score<T> evaluate(N node, T tokenThatPlayed) {
+        Score<T> score = evaluator.evaluate(node);
         if (score.equals(Score.indeterminate())) {
-            TicTacToe.Token tokenToPlay = node.tokenToPlay();
-            List<TicTacToe.Position> positions = node.playablePositions();
-            List<Score<TicTacToe.Token>> allNonLooseOutcomes = new ArrayList<>();
-            for (TicTacToe.Position position: positions) {
-                TicTacToe aNode = position.place(node, tokenToPlay).get();
-                Score<TicTacToe.Token> aScore = evaluate(aNode, tokenToPlay);
+            T tokenToPlay = node.tokenToPlay();
+            List<P> positions = node.playablePositions();
+            List<Score<T>> allNonLooseOutcomes = new ArrayList<>();
+            for (P position: positions) {
+                N aNode = position.place(node, tokenToPlay).get();
+                Score<T> aScore = evaluate(aNode, tokenToPlay);
                 if (aScore.equals(Score.winFor(tokenToPlay))) {
                     return aScore;
                 } else if (!aScore.equals(Score.winFor(tokenThatPlayed))) {

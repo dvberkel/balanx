@@ -1,5 +1,5 @@
 package nl.dvberkel.game;
 
-public interface Evaluator<S, T> {
-    Score<T> evaluate(S node);
+public interface Evaluator<N, T> {
+    Score<T> evaluate(N node);
 }
