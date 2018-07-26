@@ -16,7 +16,7 @@ import static nl.dvberkel.game.tictactoe.TicTacToe.Position.*;
 import static nl.dvberkel.game.tictactoe.TicTacToe.Token.Empty;
 import static nl.dvberkel.game.tictactoe.TicTacToe.WinningRule.winWhenSameTokenAt;
 
-public class TicTacToe implements Node<TicTacToe.Token> {
+public class TicTacToe implements Node<TicTacToe.Token, TicTacToe.Position> {
     public static enum Position {
         NW(0), N(1), NE(2),
         W(3),  C(4), E(5),
@@ -105,6 +105,7 @@ public class TicTacToe implements Node<TicTacToe.Token> {
         }
     }
 
+    @Override
     public List<Position> playablePositions() {
         return IntStream.range(0, tokens.length)
                 .filter(index -> tokens[index].equals(Empty))
@@ -112,6 +113,7 @@ public class TicTacToe implements Node<TicTacToe.Token> {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public Token tokenToPlay() {
         int crossCount = 0; int dotCount = 0;
         for (Token token : tokens) {

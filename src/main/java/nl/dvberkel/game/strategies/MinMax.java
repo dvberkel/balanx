@@ -1,5 +1,6 @@
 package nl.dvberkel.game.strategies;
 
+import nl.dvberkel.game.Node;
 import nl.dvberkel.game.Score;
 import nl.dvberkel.game.Strategy;
 import nl.dvberkel.game.Evaluator;
