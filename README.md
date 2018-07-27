@@ -10,4 +10,7 @@ A two-player strategy board game.
 ## Goal
 The goal of this repository is to make a computer analyses of the game.
 
+### Subgoal
+To create a game analysis engine.
+
 [balanx]: https://boardgamegeek.com/boardgame/2990/balanx
